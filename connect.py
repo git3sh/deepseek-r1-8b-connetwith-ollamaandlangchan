@@ -16,11 +16,7 @@ model = OllamaLLM(model="deepseek-r1:8b")
 
 chain = prompt | model
 
-question = st.chat_input("Enter your question here")
 
-if question:
-    try:
-        response = chain.invoke({"question": question})
-        st.write(response)
-    except Exception as e:
-        st.error(f"Error: {e}")
+question = st.chat_input("Enter your question here")
+if question: 
+    st.write(chain.invoke({"question": question}))
